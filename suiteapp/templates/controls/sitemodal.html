@@ -1,0 +1,42 @@
+<script>
+  $(document).ready(function(){
+      $("#id_site_name").keyup(function(){
+      $('#id_site_id')[0].value=$('#id_site_name').val().toLowerCase();
+
+      // Replace whitepsaces with "-"
+      var replaceSpace = $(this).val();
+      var result = replaceSpace.replace(/ /g, "-");
+      document.getElementById("id_site_id").value = result;
+  });
+  });
+  </script>
+<style>
+   #id_site_id { text-transform: lowercase; }
+</style>
+  <!-- Modal -->
+   <div class="modal fade sitemodal align-items-center" id="sitemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <form class="modal-content animate" action="" method="post" style="max-width: 340px;">
+            {% csrf_token %}
+          <div class="container" style="padding-top: 5%; padding-left:8%; padding-right: 8%;background-color:white;">
+
+              <label for="id_site_name"><b>Site Name/Title</b></label>
+                {{ siteform.site_name }}
+                <br />
+              <label for="id_site_id"><b>Site_id</b></label> <br />
+                {{ siteform.site_id }}
+              <label for="id_description"><b>Description</b></label>
+                {{ siteform.description }}
+              <label for="id_site_visibility"><b>Visibility</b></label>
+                {{ siteform.site_visibility }}
+            <button type="submit" class="btn btn-primary">Create site</button>
+            <button type="button" class="btn btn-danger" onclick="document.getElementById('sitemodal').style.display='none'" data-dismiss="modal">Cancel</button>
+      </div>
+      </form>
+        </div>
+      </div>
+    </div>
+  </div>

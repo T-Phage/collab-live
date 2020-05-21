@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block taskpage %}
+
+<style>
+ 
+</style>
+ <!--body tab-->
+ <div class="container">
+    <br />
+    <br />
+    <br />
+    <div class="form-group" >
+        <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+          <!--General info about task-->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="priority">Priority:</label>
+               {{ taskform.priority }}
+                <!-- <select class="col-sm-2" id="priority">
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select> -->
+            </div><br />
+            <div class="form-group row">
+              <label for="id_due_date" class="col-sm-2 col-form-label">Due Date:</label>
+              {{ taskform.due_date }}
+              <!-- <input class="col-sm-2" type="date" id="date"> -->
+            </div><br />
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="id_due_time">Due Time:</label>
+              {{ taskform.due_time }}
+              <!-- <input class="col-sm-2" type="time" id="time"> -->
+            </div>
+            <hr />
+            <!--File canvas-->
+            <div>
+              <div class="admonition col-sm-4">
+                  
+              </div><br /> 
+              <!-- <form method="POST" enctype="multipart/form-data">{% csrf_token %} {{ form.filepath }} {{ form.is_task }} {{ form.uploaded_by }} -->
+<!--                 <input type="submit"></form> -->
+            {{form}}
+              <input class="btn btn-outline-secondary" type="button" value="Select files">
+            </div>
+            <hr />
+            <!--Assignee field-->
+            {{ taskform.assignee }}
+            <input class="btn btn-outline-primary" type="button" value="Click to add assignee" onclick="document.getElementById('assignModal').style.display='block'">
+            <hr />
+            <label for="id_comment">Comment</label> <br />
+            {{ taskform.comment }} 
+            <!-- <textarea name="comment" id="comment" cols="50" rows="6"></textarea> -->
+            <hr />
+            <!--Submit button to save button-->
+            <input class="btn btn-primary" type="submit" value="Send Task">
+        </form>
+    </div>
+</div>
+<!--<form method="post">{% csrf_token %}{{taskform}}<input type="submit"></form>-->
+
+{% endblock %}
