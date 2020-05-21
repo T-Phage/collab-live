@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1@c9d8f(ehi3t7oql%h@=6uw@p9ue36m!e+p#y31$x%-%k3$0@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://collab-git.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://collab-live-cli.git.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
